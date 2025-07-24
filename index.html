@@ -1,0 +1,97 @@
+// THE FOREIGN ROOM: Market of the Beautiful Broke
+// React web app concept to visualize and explore the space
+
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Sparkles, ShoppingBag, Coffee, Users } from "lucide-react";
+
+export default function ForeignRoomApp() {
+  return (
+    <main className="min-h-screen bg-neutral-950 text-white px-4 py-6 font-mono">
+      <h1 className="text-4xl font-bold mb-6 text-center tracking-tight">
+        THE FOREIGN ROOM
+      </h1>
+      <p className="text-center text-sm text-neutral-400 mb-10">
+        Market of the Beautiful Broke · Tucson, AZ · Open 2 PM–2 AM
+      </p>
+
+      <Tabs defaultValue="fashion" className="w-full max-w-5xl mx-auto">
+        <TabsList className="grid grid-cols-4 gap-2 mb-6">
+          <TabsTrigger value="fashion">
+            <Sparkles className="inline mr-2" /> Fashion
+          </TabsTrigger>
+          <TabsTrigger value="drink">
+            <Coffee className="inline mr-2" /> Drinks
+          </TabsTrigger>
+          <TabsTrigger value="community">
+            <Users className="inline mr-2" /> Community
+          </TabsTrigger>
+          <TabsTrigger value="drops">
+            <ShoppingBag className="inline mr-2" /> Drops
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="fashion">
+          <Card className="bg-neutral-900 rounded-2xl shadow-lg p-4">
+            <CardContent>
+              <h2 className="text-xl font-semibold mb-2">THE CLOSET</h2>
+              <p className="mb-4 text-neutral-300">
+                Curated global thrift, TikTok-core pieces, and local fashion for $5–$45. Streetwear, Y2K tops, rhinestone belts, and bootleg designer moments.
+              </p>
+              <Button variant="secondary">See Lookbook</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="drink">
+          <Card className="bg-neutral-900 rounded-2xl shadow-lg p-4">
+            <CardContent>
+              <h2 className="text-xl font-semibold mb-2">SIPS FROM THE END OF THE WORLD</h2>
+              <p className="mb-4 text-neutral-300">
+                $3–5 global drinks: Vietnamese coffee, iced matcha, agua de jamaica, rose wine and mezcal soda after 6 PM. Served in thrifted glassware.
+              </p>
+              <Button variant="secondary">View Menu</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="community">
+          <Card className="bg-neutral-900 rounded-2xl shadow-lg p-4">
+            <CardContent>
+              <h2 className="text-xl font-semibold mb-2">COMMUNITY ZONE</h2>
+              <p className="mb-4 text-neutral-300">
+                Rotating vendor space, artist showcase walls, conversation pit with multilingual zines and translated books.
+              </p>
+              <Button variant="secondary">Join the Roster</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="drops">
+          <Card className="bg-neutral-900 rounded-2xl shadow-lg p-4">
+            <CardContent>
+              <h2 className="text-xl font-semibold mb-2">THIS WEEK’S DROP</h2>
+              <p className="mb-4 text-neutral-300">
+                Limited items under $30 — from fake Chrome Hearts to desert-ready mesh tops and mini bags. Updated every Thursday night.
+              </p>
+              <Button variant="secondary">Set Drop Reminder</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+
+      <div className="mt-12 max-w-2xl mx-auto text-center">
+        <h3 className="text-lg font-medium mb-2">Suggest an Item or Artist</h3>
+        <form className="space-y-3">
+          <Input placeholder="Your name or brand" className="bg-neutral-800 border-neutral-700" />
+          <Textarea placeholder="What should we add to the shop?" className="bg-neutral-800 border-neutral-700" />
+          <Button type="submit">Submit</Button>
+        </form>
+      </div>
+    </main>
+  );
+}
